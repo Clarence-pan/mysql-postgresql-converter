@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Fixes a MySQL dump made with the right format so it can be directly
@@ -40,13 +40,13 @@ def parse(input_filename, output_filename):
         output = sys.stdout
         logging = open(os.devnull, "w")
     else:
-        output = open(output_filename, "w")
+        output = open(output_filename, "w", encoding='utf8')
         logging = sys.stdout
 
     if input_filename == "-":
         input_fh = sys.stdin
     else:
-        input_fh = open(input_filename)
+        input_fh = open(input_filename,encoding='utf8')
 
 
     output.write("-- Converted by db_converter\n")
